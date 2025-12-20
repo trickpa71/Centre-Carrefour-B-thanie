@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre Carrefour Béthanie - Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="image/bethanie logo.webp">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4E977A;
+            --secondary-color: #418B7E;
+            --light-gray: #F7F4D1;
+            --dark-gray: #062223;
+            --white: #F7F4D1;
+            --border-color: #7AB37C;
+            --shadow: 0 2px 10px rgba(6, 34, 35, 0.1);
+            --transition: all 0.3s ease;
+            --error-color: #e74c3c;
+            --success-color: #27ae60;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: #7AB37C;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #F7F4D1;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo img {
+            width: 15%;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            background: #F7F4D1;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(6, 34, 35, 0.08);
+            min-height: 50px;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-color), #418B7E);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(78, 151, 122, 0.3);
+        }
+
+        .nav-links a.active {
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-color), #3A7A6E);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(78, 151, 122, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: linear-gradient(135deg, var(--primary-color), #418B7E);
+            border: none;
+            font-size: 1.8rem;
+            color: var(--white);
+            cursor: pointer;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(78, 151, 122, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 120px;
+            min-height: calc(100vh - 200px);
+            padding: 2rem 0;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Content */
+        .contact-content {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 25px rgba(6, 34, 35, 0.1);
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        .contact-form-container h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--dark-gray);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background: #FEFEF9;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(78, 151, 122, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-group input.error,
+        .form-group textarea.error {
+            border-color: var(--error-color);
+        }
+
+        .form-group input.success,
+        .form-group textarea.success {
+            border-color: var(--success-color);
+        }
+
+        .help-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .char-counter {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: right;
+            margin-top: 0.3rem;
+        }
+
+        .char-counter.warning {
+            color: #e67e22;
+        }
+
+        .char-counter.error {
+            color: var(--error-color);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(78, 151, 122, 0.3);
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(78, 151, 122, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 8px 25px rgba(6, 34, 35, 0.1);
+            animation: slideInUp 0.6s ease forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+            margin-top: 2rem;
+        }
+
+        .map-section h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(6, 34, 35, 0.15);
+            border: 3px solid var(--border-color);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #A8B5A8;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2A4F4B;
+            color: #A8B5A8;
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                padding: 1rem 0;
+            }
+
+            main {
+                margin-top: 100px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .logo img {
+                width: 20%;
+            }
+
+            .contact-form-container,
+            .map-section {
+                padding: 2rem;
+            }
+
+            .contact-form-container h2,
+            .map-section h3 {
+                font-size: 1.6rem;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .contact-form-container,
+            .map-section {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="image/bethanie logo.webp" alt="logo">
+                Centre Carrefour Béthanie
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="batiment.html">Bâtiments</a></li>
+                <li><a href="tourisme.html">Tourisme</a></li>
+                <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Nous Contacter</h1>
+                <p>Nous sommes à votre écoute pour tous vos projets</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Formulaire de Contact -->
+                <div class="contact-form-container">
+                    <h2>Envoyez-nous un message</h2>
+                    <form id="contactForm" action="https://formspree.io/f/xpwkakkp" method="POST">
+                        <div class="form-group">
+                            <label for="email">Email: <span style="color: var(--error-color);">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required>
+                            <p class="error-message" id="emailError">Veuillez entrer une adresse email valide</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message: <span style="color: var(--error-color);">*</span></label>
+                            <textarea id="message" name="message" placeholder="Écrivez votre message ici..." required
+                                maxlength="1000"></textarea>
+                            <p class="help-text">
+                            </p>
+                            <p class="char-counter" id="charCounter">0 / 1000 caractères</p>
+                        </div>
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Envoyer le message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Carte -->
+                <div class="map-section">
+                    <h3>Nous Trouver</h3>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.8!2d4.0538!3d44.0601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b5679c3b2d1f8d%3A0x0!2s1538%20Route%20du%20Mas%20Miger%2C%2030140%20Bagard!5e0!3m2!1sfr!2sfr!4v1234567890"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Centre Carrefour Béthanie</h3>
+                    <p>Une communauté engagée au service de tous depuis 1891. Venez nous rencontrer et découvrir nos
+                        activités.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Liens Rapides</h3>
+                    <a href="index.html">Accueil</a><br>
+                    <a href="batiment.html">Nos bâtiments</a><br>
+                    <a href="qui-sommes-nous.html">Qui sommes-nous</a><br>
+                    <a href="tarifs.html">Nos tarifs</a><br>
+                    <a href="contact.html">Contact</a><br>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Informations Pratiques</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 1538 route du Mas Miger<br>30140 Bagard</p>
+                    <p><i class="fas fa-phone"></i> 04 66 60 71 74</p>
+                    <p><i class="fas fa-mobile-alt"></i> 06 59 89 23 45</p>
+                    <p><i class="fas fa-envelope"></i> carrefour.bethanie@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Lun-Ven: 9h-17h</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Centre Carrefour Béthanie. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinksContainer = document.querySelector('.nav-links');
+            const contactForm = document.getElementById('contactForm');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+            const charCounter = document.getElementById('charCounter');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Menu mobile
+            mobileMenuBtn.addEventListener('click', function () {
+                navLinksContainer.classList.toggle('active');
+            });
+
+            // Fermer le menu mobile en cliquant à l'extérieur
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('nav')) {
+                    navLinksContainer.classList.remove('active');
+                }
+            });
+
+            // Validation de l'email
+            emailInput.addEventListener('blur', function () {
+                validateEmail();
+            });
+
+            emailInput.addEventListener('input', function () {
+                if (emailError.classList.contains('show')) {
+                    validateEmail();
+                }
+            });
+
+            function validateEmail() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailInput.value)) {
+                    emailInput.classList.add('error');
+                    emailInput.classList.remove('success');
+                    emailError.classList.add('show');
+                    return false;
+                } else {
+                    emailInput.classList.remove('error');
+                    emailInput.classList.add('success');
+                    emailError.classList.remove('show');
+                    return true;
+                }
+            }
+
+            // Compteur de caractères et validation du message
+            messageInput.addEventListener('input', function () {
+                const length = messageInput.value.length;
+                charCounter.textContent = `${length} / 1000 caractères`;
+
+                if (length > 900) {
+                    charCounter.classList.add('warning');
+                } else {
+                    charCounter.classList.remove('warning');
+                }
+
+                if (length >= 1000) {
+                    charCounter.classList.add('error');
+                } else {
+                    charCounter.classList.remove('error');
+                }
+
+                if (messageError.classList.contains('show')) {
+                    validateMessage();
+                }
+            });
+
+            messageInput.addEventListener('blur', function () {
+                validateMessage();
+            });
+
+            function validateMessage() {
+                const length = messageInput.value.trim().length;
+                if (length === 0) {
+                    messageInput.classList.add('error');
+                    messageInput.classList.remove('success');
+                    return false;
+                } else {
+                    messageInput.classList.remove('error');
+                    messageInput.classList.add('success');
+                    return true;
+                }
+            }
+
+            // Validation du formulaire
+            contactForm.addEventListener('submit', function (e) {
+                const isEmailValid = validateEmail();
+                const isMessageValid = validateMessage();
+
+                if (!isEmailValid || !isMessageValid) {
+                    e.preventDefault();
+                    submitBtn.textContent = '⚠️ Veuillez corriger les erreurs';
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+                    }, 2000);
+                } else {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Envoi en cours...';
+                    submitBtn.disabled = true;
+                }
+            });
+
+            // Animation de chargement
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

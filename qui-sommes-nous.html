@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre Carrefour Béthanie - Qui sommes-nous</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="image/bethanie logo.webp">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4E977A;
+            --secondary-color: #418B7E;
+            --light-gray: #F7F4D1;
+            --dark-gray: #062223;
+            --white: #F7F4D1;
+            --border-color: #7AB37C;
+            --shadow: 0 2px 10px rgba(6, 34, 35, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: #7AB37C;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #F7F4D1;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo img {
+            width: 15%;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            background: #F7F4D1;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(6, 34, 35, 0.08);
+            min-height: 50px;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-color), #418B7E);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(78, 151, 122, 0.3);
+        }
+
+        .nav-links a.active {
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-color), #3A7A6E);
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(78, 151, 122, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: linear-gradient(135deg, var(--primary-color), #418B7E);
+            border: none;
+            font-size: 1.8rem;
+            color: var(--white);
+            cursor: pointer;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(78, 151, 122, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 120px;
+            min-height: calc(100vh - 200px);
+            padding: 2rem 0;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* History Section Layout */
+        .history-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        /* Main History Card */
+        .history-main .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .history-main .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(6, 34, 35, 0.15);
+        }
+
+        .history-main .card h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* First Paragraph with Image */
+        .history-first-paragraph {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .history-text-first {
+            flex: 1;
+        }
+
+        .history-text-first p {
+            margin: 0;
+            text-align: justify;
+        }
+
+        .history-first-paragraph img {
+            flex: 0 0 40%;
+            max-width: 40%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-top: -70px;
+        }
+
+        /* Rest of History Text */
+        .history-rest p {
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+
+        /* Sidebar */
+        .sidebar-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: fit-content;
+        }
+
+        .sidebar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(6, 34, 35, 0.15);
+        }
+
+        .sidebar-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .sidebar-card h4 {
+            text-align: center;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-image {
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar-image img {
+            width: 50%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .sidebar-content p {
+            color: var(--dark-gray);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #A8B5A8;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2A4F4B;
+            color: #A8B5A8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-links a {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                padding: 1rem 0;
+            }
+
+            main {
+                margin-top: 100px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .logo img {
+                width: 20%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .history-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .history-first-paragraph {
+                flex-direction: column;
+            }
+
+            .history-first-paragraph img {
+                max-width: 100%;
+                flex: 0 0 100%;
+                margin-top: 0;
+            }
+
+            .sidebar-image {
+                justify-content: center;
+            }
+
+            .sidebar-image img {
+                width: 60%;
+            }
+
+            .sidebar-content p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card,
+        .sidebar-card {
+            animation: fadeIn 0.6s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="image/bethanie logo.webp" alt="logo">
+                Centre Carrefour Béthanie
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="batiment.html">Bâtiments</a></li>
+                <li><a href="tourisme.html">Tourisme</a></li>
+                <li><a href="qui-sommes-nous.html" class="active">Qui sommes-nous</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Qui Sommes-Nous</h1>
+                <p>Une histoire d'engagement et de service depuis plus d'un siècle</p>
+            </div>
+
+            <!-- Histoire et section complémentaire -->
+            <div class="history-section">
+                <div class="history-main">
+                    <div class="card">
+                        <h3>Notre Histoire</h3>
+
+                        <!-- Premier paragraphe avec image -->
+                        <div class="history-first-paragraph">
+                            <div class="history-text-first">
+                                <p>L'ensemble appelé « Béthanie » a été créé à la fin du XIX<sup>e</sup> siècle, en 1891
+                                    par le pasteur Guillaume Granier Soucieux de la mission sociale de l'Eglise, il
+                                    voulut avec son épouse créer "un lieu où chacun pourrait trouver de quoi se
+                                    distraire, se cultiver, s'épanouir". Sans héritiers, ils léguèrent cette propriété à
+                                    la communauté protestante de Bagard et Boisset.</p>
+                            </div>
+                            <img src="image/personnage-dessin-anime-enfant-enfant-colore-fond_884500-18397.jpg"
+                                alt="Personnage historique">
+                        </div>
+
+                        <!-- Paragraphes suivants -->
+                        <div class="history-rest">
+                            <p>Après la guerre de 1914-1918, Béthanie rassemblait la jeunesse des villages de Boisset et
+                                Bagard pour des activités très éclectiques : sport, jeux, formation biblique et
+                                spirituelle, activités culturelles.. Suite à des échanges avec la « Grande Île », il
+                                paraît même qu'à Madagascar on parlait de Béthanie ! Il y avait des conférences et c'est
+                                là qu'ont eu lieu les premières "projections lumineuses" du secteur, ancêtre du cinéma.
+                            </p>
+
+                            <p>Par tradition Béthanie a toujours été un lieu ouvert à tous. En 1942, la meute de
+                                louveteaux était constituée pour moitié des enfants juifs du Foyer Marie Claire de
+                                Boisset, par exemple.</p>
+
+                            <p>C'est dans les années 1970, que le pasteur Gaussorgues a créé une association loi 1901,
+                                le « Centre Carrefour Béthanie » pour faciliter la gestion de ce lieu indépendamment de
+                                la paroisse, et pour se tourner vers la formation d'animateurs de colonies de vacances
+                                tout en devenant lui-même un centre de vacances familial, laïc et ouvert.</p>
+
+                            <p>Depuis, Le Centre s'est agrandi avec le bâtiment des Tilleuls, mais aussi modernisé pour
+                                s'adapter aux normes sanitaires et de confort d'accueil. Ses projets de rénovation ont
+                                toujours été soutenus avec bienveillance par les institutions territoriales
+                                (Municipalité, Région, CAF, Jeunesse et Sports…). Ces projets ont également bénéficié du
+                                soutien de communautés protestantes de Suisse et de Hollande, historiquement proches des
+                                Cévennes car elles ont naguère largement accueilli la diaspora huguenote qui a suivi la
+                                révocation de l'édit de Nantes.</p>
+
+                            <p>Le Centre est ouvert à tous dans le respect de la laïcité républicaine, il veille à
+                                conserver à ce lieu l'esprit et les valeurs du protestantisme qui l'animent depuis les
+                                débuts de son histoire. Il est aussi membre du réseau des Centres chrétiens de vacances
+                                et de la FEP</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Un peu d'histoire</h3>
+                        <h4>La croix Huguenote</h4>
+                        <div class="sidebar-image">
+                            <img src="image/croix hugenotye.jpg" alt="Croix Huguenote">
+                        </div>
+                        <div class="sidebar-content">
+                            <p>La croix huguenote apparaît en Languedoc, peu après la révocation de l'Édit de Nantes.
+                                Une famille de bijoutier nîmois, les Maistre, serait la première en 1688 à en avoir
+                                réalisé en or. La mode de ce bijou féminin se répand rapidement en pays réformé.</p>
+                            <p>Après un oubli de plus d'un siècle, ce bijou connaît un regain d'intérêt grâce aux
+                                travaux des érudits et collectionneurs protestants, comme Raoul Allier, professeur à la
+                                faculté de théologie protestante de Paris, qui en possédait cent six. Avec l'ouverture
+                                du musée du Désert à Mialet (Gard) en 1911, la croix huguenote devient l'objet
+                                d'expositions et d'articles dans la Société de l'histoire du protestantisme français et
+                                suscite de nombreuses rééditions en or, en argent et en métal. La librairie générale et
+                                protestante de Paris en vend à partir de 1912. Dans l'entre-deux-guerres, la croix
+                                huguenote commence à remplacer le pendentif en forme de cœur qui était offert aux jeunes
+                                filles lors de la confirmation. Elle s'affirme depuis la Seconde Guerre mondiale, et son
+                                utilisation dans l'insigne des résistants protestants, comme le bijou protestant par
+                                essence et son usage se diffuse y compris dans les territoires luthériens. Elle est
+                                aujourd'hui portée à la fois par les hommes et les femmes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Centre Carrefour Béthanie</h3>
+                    <p>Une communauté engagée au service de tous depuis 1891. Venez nous rencontrer et découvrir nos
+                        activités.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Liens Rapides</h3>
+                    <a href="index.html">Accueil</a><br>
+                    <a href="batiment.html">Nos bâtiments</a><br>
+                    <a href="qui-sommes-nous.html">Qui sommes-nous</a><br>
+                    <a href="tarifs.html">Nos tarifs</a><br>
+                    <a href="contact.html">Contact</a><br>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Informations Pratiques</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 1538 route du Mas Miger<br>30140 Bagard</p>
+                    <p><i class="fas fa-phone"></i> 04 66 60 71 74</p>
+                    <p><i class="fas fa-mobile-alt"></i> 06 59 89 23 45</p>
+                    <p><i class="fas fa-envelope"></i> carrefour.bethanie@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Lun-Ven: 9h-17h</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Centre Carrefour Béthanie. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinksContainer = document.querySelector('.nav-links');
+
+            // Menu mobile
+            mobileMenuBtn.addEventListener('click', function () {
+                navLinksContainer.classList.toggle('active');
+            });
+
+            // Fermer le menu mobile en cliquant à l'extérieur
+            document.addEventListener('click', function (e) {
+                if (!e.target.closest('nav')) {
+                    navLinksContainer.classList.remove('active');
+                }
+            });
+
+            // Animation de chargement
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>
